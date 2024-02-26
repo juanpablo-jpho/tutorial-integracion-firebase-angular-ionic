@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "otra-app-645d0": {
+      "hosting": {
+        "app": [
+          "clases-develop"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "otra-app-645d0"
+  }
+}

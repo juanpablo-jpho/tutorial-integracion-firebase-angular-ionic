@@ -13,8 +13,73 @@
     </ion-toolbar>
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
+  <ion-card>
+
+    <ion-item>
+      <ion-label>Nombre</ion-label>
+      <ion-input [(ngModel)]="newUser.nombre"></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Edad</ion-label>
+      <ion-input [(ngModel)]="newUser.edad"></ion-input>
+    </ion-item>
+
+
+  </ion-card>
+
+
+
+
+  <div style="margin: 20px;">
+
+    <ion-button (click)="save()" expand="block" shape="round" color="success">
+      Guardar
+    </ion-button>
+
   </div>
+
+
+
+  @if (cargando) {
+    <div style="text-align: center;">
+      <ion-spinner name="bubbles"></ion-spinner>
+    </div>
+  }
+
+  
+    <ion-list>
+      @for (user of users; track $index) {
+        <ion-item>
+          <ion-label>
+            Nombre: {{user.nombre}}
+            <p>Edad: {{user.edad}}</p>
+          </ion-label>
+          <ion-buttons slot="end">
+
+            <ion-button (click)="edit(user)">
+              <ion-icon slot="icon-only" name="create" color="primary"></ion-icon>
+            </ion-button>
+
+            <ion-button (click)="delete(user)">
+              <ion-icon slot="icon-only" name="trash" color="danger"></ion-icon>
+            </ion-button>
+          </ion-buttons>
+        </ion-item>
+      }
+    </ion-list>
+
+
+    @if (user) {
+      
+      <!-- <ion-item>
+        <ion-label>
+          Nombre: {{user.nombre}}
+          <p>Edad: {{user.edad}}</p>
+        </ion-label>
+      </ion-item> -->
+    }
+
+
+
 </ion-content>
